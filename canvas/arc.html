@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arcs and circles</title>
+</head>
+<body>
+  <canvas height="600" width="800"></canvas>
+  <script>
+    var canvas = document.querySelector('canvas'),
+        ctx = canvas.getContext('2d'),
+        x = canvas.width / 2,
+        y = canvas.height / 2,
+        radius = y;
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+    
+    ctx.beginPath();
+    ctx.strokeStyle = "rgba(0, 102, 204, .7)";
+    ctx.moveTo(x, y - 50);
+    ctx.lineTo(x + 50, y);
+    ctx.lineTo(x - 50, y);
+    ctx.lineTo(x, y - 50);
+    ctx.stroke();
+    ctx.closePath();
+  </script>
+</body>
+</html>

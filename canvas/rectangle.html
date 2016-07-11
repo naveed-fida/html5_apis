@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Exploration</title>
+</head>
+<body>
+  <canvas width="800" height="600"></canvas>
+  <script>
+    var canvas = document.querySelector('canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    var colors = ["#000", "#003", "#006", "#009", "#00c", "#00f"];
+
+    function draw() {
+      colors.forEach(function(color, i) {
+        ctx.fillStyle = color;
+        ctx.fillRect(i * 20, i * 20, canvas.width - i * 40, canvas.height - i * 40);
+      });
+      colors.unshift(colors.pop());
+      setTimeout(draw, 200);
+    }
+
+    draw();
+
+  </script>
+</body>
+</html>
